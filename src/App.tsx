@@ -16,7 +16,7 @@ function App() {
   const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
   const [currentPostId, setCurrentPostId] = React.useState<number | null>(null);
   const dispatch = useDispatch();
-  const posts = useSelector((state: IState) => state.posts);
+  const { posts, isLoaded } = useSelector((state: IState) => state);
 
   React.useEffect(() => {
     dispatch(fetchPosts());
@@ -35,7 +35,9 @@ function App() {
       </Text>
       {!isModalOpen && <Button onClick={showModal} />}
       {isModalOpen && <AddPostModal showModal={isModalOpen} hideModal={() => hideModal()} />}
-      {posts.length > 0 ? <PostsList posts={posts} currentIDForDel={confirmPostDelete} /> : <p>No posts.</p>}
+      {isLoaded && <p>Loading posts...</p>}
+      {posts.length > 0 && <PostsList posts={posts} currentIDForDel={confirmPostDelete} />}
+      {!posts.length && !isLoaded ? <p>No posts</p> : ''}
       {!hideDialog && (
         <ConfirmDialog hideDialog={hideDialog} toggleHideDialog={toggleHideDialog} currentPostId={currentPostId} />
       )}

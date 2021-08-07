@@ -1,16 +1,22 @@
 # React app - posts info
 
+### Описание приложения:
+
+Одностраничное приложение для просмотра информации о постах, загруженных со стороннего api с возможностью
+добавлять и удалять (с подтверждением) посты. В качестве менеджера состояний используется REDUX.
+
+## Используемые ресурсы и инструменты:
+
+- [JSONPlaseholder (API постов)](https://jsonplaceholder.typicode.com/posts)
+- [Fluent UI (ui фреймворк)](https://developer.microsoft.com/ru-ru/fluentui#/)
+- [Redux (менеджер состояний)](https://react-redux.js.org/)
+
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Запуск приложения в режиме разработки.\
+Откройте [http://localhost:3000](http://localhost:3000) для просмотра в браузере.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Запуска тестов в интерактивном режиме просмотра.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.

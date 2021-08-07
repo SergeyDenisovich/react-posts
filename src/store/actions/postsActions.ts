@@ -39,7 +39,10 @@ export type ActionTypes =
 
 // fetch posts
 export const fetchPosts = () => (dispatch: any) => {
-  dispatch(setLoaded(false));
+  dispatch(setLoaded(true));
 
-  axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10').then(({ data }) => dispatch(initPosts(data)));
+  axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10').then(({ data }) => {
+    dispatch(initPosts(data));
+    dispatch(setLoaded(false));
+  });
 };
