@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { postsAPI } from '../../api/api';
 
 export type PostType = {
   userId?: number;
@@ -38,11 +38,14 @@ export type ActionTypes =
   | ReturnType<typeof setLoaded>;
 
 // fetch posts
-export const fetchPosts = () => (dispatch: any) => {
+export const fetchPosts = () => async (dispatch: any) => {
   dispatch(setLoaded(true));
 
-  axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10').then(({ data }) => {
+  try {
+    const data = await postsAPI.getPosts();
     dispatch(initPosts(data));
     dispatch(setLoaded(false));
-  });
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -4,8 +4,8 @@ import { mergeStyleSets, Modal } from '@fluentui/react';
 import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
 import { TextField } from '@fluentui/react/lib/TextField';
 import { useDispatch, useSelector } from 'react-redux';
-import { IState } from './store/reducer/postsReducer';
-import { addPostToState } from './store/actions/postsActions';
+import { IState } from '../store/reducer/postsReducer';
+import { addPostToState } from '../store/actions/postsActions';
 
 interface AddPostProps {
   showModal: boolean;

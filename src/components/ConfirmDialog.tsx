@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Dialog, DialogType, DialogFooter } from '@fluentui/react/lib/Dialog';
 import { PrimaryButton, DefaultButton } from '@fluentui/react/lib/Button';
 import { useId } from '@fluentui/react-hooks';
-import { deletePost } from './store/actions/postsActions';
+import { deletePost } from '../store/actions/postsActions';
 import { useDispatch } from 'react-redux';
 
 const dialogStyles = { main: { maxWidth: 450 } };
