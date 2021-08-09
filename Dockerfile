@@ -1,22 +1,31 @@
+FROM node:10-alpine as builder
 
-# Step 1
-FROM node:10-alpine as build-step
 
-RUN mkdir /app
+COPY package.json package-lock.json ./
 
-WORKDIR /app
 
-COPY package.json /app
+RUN npm install && mkdir /react-ui && mv ./node_modules ./react-ui
 
-RUN npm install
+WORKDIR /react-ui
 
-COPY . /app
+COPY . .
+
 
 RUN npm run build
 
- 
-# Stage 2
 
-FROM nginx:1.17.1-alpine
+FROM nginx:alpine
 
-COPY --from=build-step /app/build /usr/share/nginx/html
+#!/bin/sh
+
+COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
+
+
+RUN rm -rf /usr/share/nginx/html/*
+
+
+COPY --from=builder /react-ui/build /usr/share/nginx/html
+
+EXPOSE 3000 80
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
