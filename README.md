@@ -1,4 +1,4 @@
-# React app - posts info
+# [Информация о постах](https://sergeydenisovich.github.io/react-posts/)
 
 ### Описание приложения:
 
