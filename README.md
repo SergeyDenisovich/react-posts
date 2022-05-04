@@ -7,17 +7,18 @@
 
 ## Используемые ресурсы и инструменты:
 
+- [React js (js - фреймворк)](https://ru.reactjs.org/)
 - [JSONPlaseholder (API постов)](https://jsonplaceholder.typicode.com/posts)
 - [Fluent UI (ui фреймворк)](https://developer.microsoft.com/ru-ru/fluentui#/)
 - [Redux (менеджер состояний)](https://react-redux.js.org/)
 
 ### Запуск приложения
 
-#### git clone 
+#### `git clone git@github.com:SergeyDenisovich/react-posts.git`
 
 Клонирование проекта
 
-#### npm install
+#### `npm install`
 
 Установка зависимостей
 
